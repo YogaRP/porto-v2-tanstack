@@ -43,7 +43,7 @@ export default function Hero() {
                                 <ArrowRight className="size-4" />
                             </Button>
                         </Link>
-                        <a href="#">
+                        <a href="https://drive.google.com/file/d/131TiOANyBfcJX0R1oXSpnb4gvCEwI1N1/view?usp=drive_link" target="_blank" download>
                             <Button
                                 size="lg"
                                 variant="outline"
@@ -59,11 +59,11 @@ export default function Hero() {
                 <div className="relative mx-auto w-full max-w-sm">
                     <div className="relative aspect-square overflow-hidden rounded-full border-4 border-primary/70 bg-muted">
                         <Image
-                            src="/images/profile.png"
-                            alt="Portrait of John Doe"
+                            src="/hero_pic.jpg"
+                            alt="Portrait of Yoga Rizky Putra"
                             priority
                             sizes="(max-width: 768px) 80vw, 380px"
-                            className="object-cover"
+                            className="h-full w-full object-cover object-[60%_40%]"
                             layout="fullWidth"
                         />
                     </div>
@@ -77,6 +77,6 @@ export default function Hero() {
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     )
 }

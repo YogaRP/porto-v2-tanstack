@@ -2,85 +2,121 @@ export type Project = {
   title: string
   category: string
   description: string
-  image: string
   tags: string[]
 }
 
 export const projects: Project[] = [
   {
-    title: "Analytics Dashboard",
+    title: "Ezzi School - School Management Application",
     category: "Web App",
     description:
-      "A real-time analytics platform delivering interactive charts and actionable product insights.",
-    image: "/images/analytics.png",
-    tags: ["React", "Firebase", "D3"],
+      "A web based application for school management",
+    tags: ["Reactjs", "ExpressJs", "MongoDB"],
   },
   {
-    title: "Smart City App",
-    category: "Mobile",
-    description:
-      "An IoT-driven mobile app connecting citizens with city services through a single hub.",
-    image: "/images/smartcity.png",
-    tags: ["Flutter", "Node.js", "MQTT"],
-  },
-  {
-    title: "Design System Kit",
-    category: "UI/UX",
-    description:
-      "A comprehensive design system with reusable components, tokens and documentation.",
-    image: "/images/designsystem.png",
-    tags: ["Figma", "Tokens", "Storybook"],
-  },
-  {
-    title: "Shopify Storefront",
+    title: "Ezzi Work - HRIS Application",
     category: "Web App",
     description:
-      "A high-converting e-commerce storefront with optimized checkout and product discovery.",
-    image: "/images/storefront.png",
-    tags: ["Next.js", "Stripe", "Tailwind"],
+      "A web based application for HRIS application.",
+    tags: ["Reactjs", "ExpressJs", "MongoDB"],
   },
   {
-    title: "DataViz Studio",
+    title: "Learning Project - Digital Wallet and Ecommerce Web App",
     category: "Web App",
     description:
-      "An interactive data visualization studio for building custom dashboards and reports.",
-    image: "/images/dataviz.png",
-    tags: ["Vue", "Python", "Plotly"],
+      "This is a separate project but connected app, the first one is Digital Wallet web based Rest API using Grpc for communication on the microservice, and the second one is ecommerce web Rest API using Kafka as communication on the microservice, the app is connected so the wallet is used for transaction on ecommerce service.",
+    tags: ["Go", "Grpc", "Kafka", "Microsevice"],
   },
   {
-    title: "Shader Toolkit",
-    category: "Open Source",
-    description:
-      "An open-source GLSL shader library with utilities and examples for creative coding.",
-    image: "/images/shader.png",
-    tags: ["WebGL", "GLSL", "TypeScript"],
-  },
-]
-
-export const latestProjects: Project[] = [
-  {
-    title: "Analytics Dashboard",
+    title: "Learning Project - Digital Product Marketplace",
     category: "Web App",
     description:
-      "A clean analytics interface for monitoring product performance and user engagement in real time.",
-    image: "/images/analytics.png",
-    tags: ["React", "Tailwind", "Chart.js"],
+      "This is a marketplace but for digital product such as video, image, or other digital asset",
+    tags: ["NestJS", "AWS"],
   },
   {
-    title: "Finance Tracker",
-    category: "Mobile App",
+    title: "Learning Project - AI Notetaking",
+    category: "Web App",
     description:
-      "A mobile-first budgeting app with intuitive charts, goals, and transaction insights.",
-    image: "/images/finance.png",
-    tags: ["Next.js", "Supabase", "Framer"],
+      "This is a custom note app with AI chatbot to ask about related note, and an AI based search feature with cosine similiarity to search based on vector so user can find based on the context.",
+    tags: ["Go", "ReactJS", "Supabase/PostgreSQL", "Gemini"],
   },
   {
-    title: "Shop Experience",
-    category: "E-commerce",
+    title: "Half Project - A delivery courier app for FnB business",
+    category: "Web App",
     description:
-      "A conversion-focused storefront with streamlined browsing, product discovery, and checkout.",
-    image: "/images/shop.png",
-    tags: ["Vue", "Stripe", "Node"],
+      "An order and courier management using a websocket for integration with mobile app. But unfortunetaly the project cancelled in the middle",
+    tags: ["NextJS", "ExpressJS", "Websocket"],
+  },
+  {
+    title: "Half Project - Kerjahub, a job seeker for",
+    category: "Web App",
+    description:
+      "A job seeker application integrated with mobile app. It has a feature for job seeker to find a job or for company to post a job vacancy. But unfortunetaly the project cancelled in the middle",
+    tags: ["NextJS", "PostgreSQL"],
+  },
+  {
+    title: "Learning Project - Remake Thread apps",
+    category: "Web App",
+    description:
+      "Remaking Thread apps based on tutorial on Youtube As A Programmer.",
+    tags: ["ReactJS", "ExpressJS", "MongoDB"],
+  },
+  {
+    title: "Learning Project - Remake Iphone 15 Web",
+    category: "Web App",
+    description:
+      "Remaking Apple Iphone 15 web based on tutorial on Javscript Mastery.",
+    tags: ["ReactJS", "GSAP"],
+  },
+  {
+    title: "Learning Project - BWA Job Hunt",
+    category: "Web App",
+    description:
+      "A job seeker application, it has a feature for job seeker to find a job or for company to post a job vacancy.",
+    tags: ["NextJS", "PostgreSQL"],
+  },
+  {
+    title: "Learning Project - BWA Dashboard Job Hunt",
+    category: "Web App",
+    description:
+      "This is the dahsboard for the Learning Project - BWA Job Hunt, this dashboard is for management company and management job vacancy",
+    tags: ["NextJS", "PostgreSQL"],
+  },
+  {
+    title: "Learning Project - Luxspace a furniture marketplace",
+    category: "Web App",
+    description:
+      "This a marketplace for furniture from view to purchase and pay using a mockup API.",
+    tags: ["ReactJS", "TailwindCSS"],
+  },
+  {
+    title: "Digital Signature using a QR Code Web Application",
+    category: "Web App",
+    description:
+      "This is a Final Project as a requirement to graduate from my college, this project purpose is to change digital signature from just image to QR Code on my major",
+    tags: ["Laravel 8", "MySQL", "Bootstrap"],
+  },
+  {
+    title: "Final Bootcamp Project - Tickety a ticket selling web platform",
+    category: "Web App",
+    description:
+      "This is a Final Project from my laravel bootcamp, this a platform for buy and sell ticket for an event such as webinar, workshop, concert, and etc.",
+    tags: ["Laravel 8", "MySQL"],
+  },
+  {
+    title: "Final Bootcamp Project - E-commerce website using NextJS",
+    category: "Web App",
+    description:
+      "This is a Final Project from my nextjs bootcamp, the purpose is to learn some complex thing using nextjs such as dashboard, state management, and etc.",
+    tags: ["Laravel 8", "MySQL"],
+  },
+  {
+    title: "State Asset Management Information System (SIP BMN) of the Ministry of Research, Technology and Innovation (BRIN)",
+    category: "Web App",
+    description:
+      "This is a inventory or asset management for Ministry of Research, Technology and Innovation (BRIN)",
+    tags: ["Codeigniter 3"],
   },
 ]
 
@@ -89,71 +125,121 @@ export type Certificate = {
   issuer: string
   issued: string
   verified: boolean
+  href: string
 }
 
 export const certifications: Certificate[] = [
   {
-    title: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    issued: "Issued March 2024",
-    verified: true,
+    title: "Certificate of Completion - [Paket All In One] 6 Proyek Backend Menguasai Golang (Dasar - Lanjutan)",
+    issuer: "Fast Campus",
+    issued: "Issued June 2026",
+    verified: false,
+    href: "https://drive.google.com/file/d/1Q6xE-8i80bBj5zWNOYmXuaJSiSd8tczy/view?usp=sharing"
   },
   {
-    title: "Google Professional Cloud Developer",
-    issuer: "Google Cloud",
-    issued: "Issued January 2024",
-    verified: true,
+    title: "Certificate of Completion - Optimalisasi performa React hingga migrasi ke Next.js",
+    issuer: "Fast Campus",
+    issued: "Issued January 2026",
+    verified: false,
+    href: "https://drive.google.com/file/d/1vmkZuVoozxyZpJnlghXawEeW5tsHN9Zv/view?usp=sharing"
   },
   {
-    title: "Meta Front-End Developer",
-    issuer: "Meta / Coursera",
-    issued: "Issued November 2023",
-    verified: true,
+    title: "Full Stack Golang React: Integrasi AI LLM Bikin Supernote",
+    issuer: "BuildWithAngga",
+    issued: "Issued January 2026",
+    verified: false,
+    href: "https://drive.google.com/file/d/1t3zEIkqERf8iu9RYCbyXKksYMcVTvRko/view?usp=sharing"
   },
   {
-    title: "Certified Kubernetes Administrator",
-    issuer: "Cloud Native Computing Foundation",
+    title: "Mastering Golang Microservices with Vue: Warehouse & Point of Sales",
+    issuer: "BuildWithAngga",
+    issued: "Issued June 2026",
+    verified: false,
+    href: "https://drive.google.com/file/d/1hqOdeOAc_nAmMNC4bX0za9TvZl0UvUKO/view?usp=sharing"
+  },
+  {
+    title: "NestJS & AWS Serverless Mastery: Web Jual Beli Produk Digital",
+    issuer: "BuildWithAngga",
+    issued: "Issued January 2026",
+    verified: false,
+    href: "https://drive.google.com/file/d/1qB3DNVdo9N7bfzO9A42J_dcinF3BJjtU/view?usp=sharing"
+  },
+  {
+    title: "Bangun REST API Rapi & Scalable dengan NestJS & Prisma",
+    issuer: "Dunia Coding",
+    issued: "Issued January 2026",
+    verified: false,
+    href: "https://drive.google.com/file/d/1uIsf7zNOX2RnS_wJRrIO0UQ9OTnPw1Cy/view?usp=sharing"
+  },
+  {
+    title: "K6 for Engineers: Load Testing Real-World Apps at Scale",
+    issuer: "BuildWithAngga",
+    issued: "Issued December 2025",
+    verified: false,
+    href: "https://drive.google.com/file/d/1hPdrcfFE1zhJv35pg0WGtAEqWGUiI4ea/view?usp=sharing"
+  },
+  {
+    title: "UX/UI Design Principles Compact (Theory + Figma Exercise)",
+    issuer: "Udemy (Christine moonlearning)",
+    issued: "Issued November 2024",
+    verified: false,
+    href: "https://drive.google.com/file/d/1uIsf7zNOX2RnS_wJRrIO0UQ9OTnPw1Cy/view?usp=sharing"
+  },
+  {
+    title: "Belajar Dasar Express.js",
+    issuer: "Codepolitan",
+    issued: "Issued August 2024",
+    verified: false,
+    href: "https://drive.google.com/file/d/1cWaPM1bBTPnpaJ5ploBrnOU46cRN0iwt/view?usp=sharing"
+  },
+  {
+    title: "Belajar Vue.js 3",
+    issuer: "Codepolitan",
+    issued: "Issued August 2024",
+    verified: false,
+    href: "https://drive.google.com/file/d/1Tsn1kDEAWOPBtrjDg7FaQjWmVLAER2Yy/view?usp=sharing"
+  },
+  {
+    title: "UI/UX Design Bootcamp",
+    issuer: "Sanbercode",
+    issued: "Issued March 2023",
+    verified: false,
+    href: "https://drive.google.com/file/d/1QL-leFT7T8H_bxM1qZye8m4yBB4KLPW-/view?usp=sharing"
+  },
+  {
+    title: "UI/UX Design Bootcamp",
+    issuer: "Sanbercode",
+    issued: "Issued March 2023",
+    verified: false,
+    href: "https://drive.google.com/file/d/1QL-leFT7T8H_bxM1qZye8m4yBB4KLPW-/view?usp=sharing"
+  },
+  {
+    title: "NextJS Bootcamp",
+    issuer: "Sanbercode",
+    issued: "Issued October 2023",
+    verified: false,
+    href: "https://drive.google.com/file/d/1oBBbxofYSMNQrKib7U95bz9NXw1Qy1X8/view?usp=sharing"
+  },
+  {
+    title: "Belajar ReactJS",
+    issuer: "Sanbercode",
     issued: "Issued September 2023",
-    verified: true,
+    verified: false,
+    href: "https://drive.google.com/file/d/1-__Lj7KmrAjKEdXTfpYmlon8AhFcaBud/view?usp=sharing"
   },
   {
-    title: "TensorFlow Developer Certificate",
-    issuer: "Google / TensorFlow",
-    issued: "Issued July 2023",
-    verified: true,
+    title: "Menguasai Framework Nest JS dari awal sampai mahir",
+    issuer: "Mister Coding",
+    issued: "Issued December 2023",
+    verified: false,
+    href: "https://drive.google.com/file/d/1-__Lj7KmrAjKEdXTfpYmlon8AhFcaBud/view?usp=sharing"
   },
   {
-    title: "Scrum Master Certified (PSM I)",
-    issuer: "Scrum.org",
-    issued: "Issued April 2023",
-    verified: true,
-  },
-]
-
-export const awards = [
-  {
-    title: "Best Innovation Award",
-    year: "2024",
-    description:
-      "Awarded for developing an AI-powered accessibility tool at the annual TechForward conference.",
-  },
-  {
-    title: "1st Place — Global Hackathon",
-    year: "2023",
-    description:
-      "Led a team of four to victory among 200+ teams building a real-time collaboration platform.",
-  },
-  {
-    title: "Top Contributor of the Year",
-    year: "2023",
-    description:
-      "Recognized for outstanding open-source contributions to popular developer libraries.",
-  },
-  {
-    title: "Dean's List Excellence",
-    year: "2022",
-    description:
-      "Maintained top academic standing across four consecutive semesters in Computer Science.",
+    title: "Belajar Menguasai Nest.js",
+    issuer: "Codepolitan",
+    issued: "Issued November 2023",
+    verified: false,
+    href: "https://drive.google.com/file/d/1-__Lj7KmrAjKEdXTfpYmlon8AhFcaBud/view?usp=sharing"
   },
 ]
 
@@ -164,7 +250,7 @@ export const faqs = [
   },
   {
     q: "How soon can you respond?",
-    a: "I usually reply within one business day. For urgent requests, email is the fastest way to reach me.",
+    a: "I usually reply within one business day. For urgent requests, my social media is the fastest way to reach me.",
   },
   {
     q: "Do you work remotely?",
@@ -172,6 +258,26 @@ export const faqs = [
   },
   {
     q: "Can you help with both design and development?",
-    a: "Absolutely. I can support UI/UX design, front-end implementation, and design system setup.",
+    a: "Design is not my speciality so maybe i will help as much as i can, but for development absolutely i can help",
   },
 ]
+
+export const mydata = {
+  email: "yogarizky51@gmail.com",
+  phone: "+6287870548126",
+  location: {
+    remote: "Remote only",
+    fulltime: "Jakarta, Depok, Bogor, or Remote"
+  },
+  available: {
+    freelance: "Available for Freelance",
+    fulltime: "Available for Fulltime or Freelance",
+    close: "Not Available for Work"
+  },
+  social_media: {
+    github:"https://github.com/YogaRP",
+    linkedin:"https://linkedin.com/in/yogarizkyputra",
+    instagram:"https://www.instagram.com/yogarizkyputra",
+    threads:"https://www.threads.com/@yogarizkyputra"
+  }
+}

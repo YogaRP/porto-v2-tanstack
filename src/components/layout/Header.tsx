@@ -3,6 +3,7 @@ import { Menu, X, Code2, Sparkle, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Link, useLocation } from "@tanstack/react-router"
+import { Image } from "@unpic/react"
 
 const navItems = [
     { label: "Home", href: "/" },
@@ -19,9 +20,11 @@ export default function Header() {
         <header className="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur">
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
                 <Link to="/" className="flex items-center gap-2 font-semibold">
-                    <span className="flex size-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                        <Code2 className="size-4" />
-                    </span>
+                    <Image
+                        width={40}
+                        height={40}
+                        src="/public/yrp.svg"
+                    />
                     <span className="text-base text-primary">Yoga Rizky Putra</span>
                 </Link>
 

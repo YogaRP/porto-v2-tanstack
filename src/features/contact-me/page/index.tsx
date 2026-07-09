@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router"
 import { ContactDetails, QuickContact, SocialLinks } from "../components/ContactInfo"
 import { ContactForm } from "../components/ContactForm"
 import { Faq } from "../components/Faq"
+import { mydata } from "#/data/data"
 
 
 
@@ -28,14 +29,14 @@ export default function ContactPage() {
                             </p>
                             <div className="mt-6 flex flex-wrap items-center gap-3">
                                 <a href="#message">
-                                    <Button className="rounded-full px-5" >
+                                    <Button className="rounded-full px-5 cursor-pointer" >
                                         Send a Message
                                     </Button>
                                 </a>
                                 <Link to="/projects">
                                     <Button
                                         variant="outline"
-                                        className="rounded-full px-5"
+                                        className="rounded-full px-5 cursor-pointer"
                                     >
                                         View Projects
                                     </Button>
@@ -48,7 +49,7 @@ export default function ContactPage() {
                                 </span>
                                 <span className="inline-flex items-center gap-1.5">
                                     <MapPin className="size-4 text-primary" />
-                                    San Francisco, CA
+                                    {mydata.location.fulltime}
                                 </span>
                             </div>
                         </div>

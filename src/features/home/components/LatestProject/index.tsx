@@ -1,7 +1,7 @@
-import { latestProjects } from "#/data/data";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import ProjectCard from "../../../../components/ProjectCard";
+import { projects } from "#/data/data";
 
 export default function LatestProjects() {
     return (
@@ -24,7 +24,7 @@ export default function LatestProjects() {
                 </div>
 
                 <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {latestProjects.map((project) => (
+                    {projects.slice(0, 3).map((project) => (
                         <ProjectCard key={project.title} project={project} />
                     ))}
                 </div>

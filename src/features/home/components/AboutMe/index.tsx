@@ -16,9 +16,9 @@ export default function AboutMe() {
                 <div className="mx-auto mt-2 h-1 w-12 rounded-full bg-primary" />
 
                 <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-muted">
+                    <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border bg-muted">
                         <Image
-                            src="/images/about.png"
+                            src="/about_pic.jpg"
                             alt="Workspace with laptop showing code"
                             sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover"

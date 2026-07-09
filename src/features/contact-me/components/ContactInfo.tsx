@@ -1,22 +1,23 @@
+import { mydata } from "#/data/data"
 import { Mail, Phone, Clock, MapPin, ChevronRight } from "lucide-react"
 
 const quickContact = [
-    { icon: Mail, label: "Email", value: "hello@johndoe.com" },
-    { icon: Phone, label: "Phone", value: "+1 (415) 555-0198" },
-    { icon: Clock, label: "Response", value: "Mon–Fri, 9am–6pm PST" },
+    { icon: Mail, label: "Email", value: mydata.email },
+    { icon: Phone, label: "Phone", value: mydata.phone },
+    { icon: Clock, label: "Response", value: "Mon–Fri, 9am–6pm WIB" },
 ]
 
 const details = [
-    { icon: Mail, label: "Email", value: "hello@johndoe.com" },
-    { icon: Phone, label: "Phone", value: "+1 (415) 555-0198" },
-    { icon: MapPin, label: "Location", value: "San Francisco, California" },
+    { icon: Mail, label: "Email", value: mydata.email },
+    { icon: Phone, label: "Phone", value: mydata.phone },
+    { icon: MapPin, label: "Location", value: mydata.location.fulltime },
 ]
 
 const socials = [
-    { label: "GitHub" },
-    { label: "LinkedIn" },
-    { label: "Instagram" },
-    { label: "X / Twitter" },
+    { label: "GitHub", href: mydata.social_media.github },
+    { label: "LinkedIn", href: mydata.social_media.linkedin },
+    { label: "Instagram", href: mydata.social_media.instagram },
+    { label: "Threads", href: mydata.social_media.threads },
 ]
 
 export function QuickContact() {
@@ -77,7 +78,6 @@ export function ContactDetails() {
                                     {item.value}
                                 </p>
                             </div>
-                            <ChevronRight className="size-4 text-muted-foreground" />
                         </div>
                     )
                 })}
@@ -95,14 +95,13 @@ export function SocialLinks() {
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
                 {socials.map((s) => {
-                    // const Icon = s.icon
                     return (
                         <a
                             key={s.label}
-                            href="#"
+                            href={s.href}
+                            target="_blank"
                             className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
                         >
-                            {/* <Icon className="size-4" /> */}
                             {s.label}
                         </a>
                     )

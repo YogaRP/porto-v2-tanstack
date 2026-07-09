@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="bg-[#09090B] p-12">
             <div className="flex gap-12">
                 <div className="flex-1">
-                    <h1 style={{ fontFamily: 'var(--font-mono)' }} className="text-xl font-semibold mb-4">Yoga Rizky Putra</h1>
+                    <h1 style={{ fontFamily: 'var(--font-mono)' }} className="text-xl font-semibold mb-4 text-white">Yoga Rizky Putra</h1>
                     <p className="text-sm text-[#AEAEAF]">Web developer, problem solver, digital builder. I turn ideas into fullstack web solutions, and I never stop exploring what's next.</p>
                 </div>
                 <div className="flex-1">

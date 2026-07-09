@@ -1,56 +1,66 @@
-import { useMemo, useState } from "react"
-import { Search, ChevronLeft, ChevronRight } from "lucide-react"
+import { useEffect, useMemo, useState } from "react"
+import { ChevronLeft, ChevronRight, Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { projects } from "#/data/data"
 import ProjectCard from "#/components/ProjectCard"
 import { PageBanner } from "#/components/PageBanner"
+import { ContactBar } from "#/components/ContactBar"
 
-const filters = ["All", "Web App", "Mobile", "UI/UX", "Open Source"]
+const itemsPerPage = 6
 
 export default function ProjectPage() {
-    const [active, setActive] = useState("All")
     const [query, setQuery] = useState("")
+    const [currentPage, setCurrentPage] = useState(1)
 
     const filtered = useMemo(() => {
-        return projects.filter((p) => {
-            const matchesFilter = active === "All" || p.category === active
-            const matchesQuery =
-                query.trim() === "" ||
-                p.title.toLowerCase().includes(query.toLowerCase()) ||
-                p.description.toLowerCase().includes(query.toLowerCase())
-            return matchesFilter && matchesQuery
+        const search = query.trim().toLowerCase()
+
+        if (!search) {
+            return projects
+        }
+
+        return projects.filter((project) => {
+            const searchableText = [
+                project.title,
+                project.description,
+                project.category,
+                ...project.tags,
+            ]
+                .join(" ")
+                .toLowerCase()
+
+            return searchableText.includes(search)
         })
-    }, [active, query])
+    }, [query])
+
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [query])
+
+    const totalPages = Math.max(1, Math.ceil(filtered.length / itemsPerPage))
+    const visibleProjects = useMemo(() => {
+        const start = (currentPage - 1) * itemsPerPage
+        return filtered.slice(start, start + itemsPerPage)
+    }, [currentPage, filtered])
 
     return (
         <div className="flex min-h-screen flex-col">
             <main className="flex-1">
                 <PageBanner
                     title="All Projects"
-                    subtitle="A collection of my work across web, mobile, and design."
+                    subtitle="A collection of my work and learning project"
                     breadcrumbs={[{ label: "Projects" }]}
                 />
                 <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-                    <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                        <div className="flex flex-wrap gap-2">
-                            {filters.map((filter) => (
-                                <button
-                                    key={filter}
-                                    type="button"
-                                    onClick={() => setActive(filter)}
-                                    className={cn(
-                                        "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
-                                        active === filter
-                                            ? "bg-primary text-primary-foreground"
-                                            : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground",
-                                    )}
-                                >
-                                    {filter}
-                                </button>
-                            ))}
+                    <div className="flex flex-col gap-4 rounded-2xl border border-border/70 bg-card/70 p-4 shadow-sm sm:p-6 lg:flex-row lg:items-center lg:justify-between">
+                        <div>
+                            <p className="text-sm font-medium text-primary">Search projects</p>
+                            <p className="mt-1 text-sm text-muted-foreground">
+                                Find a project by name, stack, or description.
+                            </p>
                         </div>
 
-                        <div className="flex w-full items-center gap-2 rounded-full border border-border bg-card px-4 lg:w-72">
+                        <div className="flex w-full items-center gap-2 rounded-full border border-border bg-background px-4 lg:w-80">
                             <Search className="size-4 text-muted-foreground" />
                             <input
                                 type="search"
@@ -64,48 +74,62 @@ export default function ProjectPage() {
                     </div>
 
                     {filtered.length > 0 ? (
-                        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                            {filtered.map((project) => (
-                                <ProjectCard key={project.title} project={project} />
-                            ))}
-                        </div>
+                        <>
+                            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                                {visibleProjects.map((project) => (
+                                    <ProjectCard key={project.title} project={project} />
+                                ))}
+                            </div>
+
+                            {totalPages > 1 && (
+                                <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
+                                    <button
+                                        type="button"
+                                        aria-label="Previous page"
+                                        onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+                                        disabled={currentPage === 1}
+                                        className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50"
+                                    >
+                                        <ChevronLeft className="size-4" />
+                                    </button>
+
+                                    {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+                                        <button
+                                            key={page}
+                                            type="button"
+                                            onClick={() => setCurrentPage(page)}
+                                            className={cn(
+                                                "inline-flex size-9 items-center justify-center rounded-full text-sm font-medium transition-colors",
+                                                currentPage === page
+                                                    ? "bg-primary text-primary-foreground"
+                                                    : "border border-border text-muted-foreground hover:bg-muted",
+                                            )}
+                                        >
+                                            {page}
+                                        </button>
+                                    ))}
+
+                                    <button
+                                        type="button"
+                                        aria-label="Next page"
+                                        onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
+                                        disabled={currentPage === totalPages}
+                                        className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50"
+                                    >
+                                        <ChevronRight className="size-4" />
+                                    </button>
+                                </div>
+                            )}
+                        </>
                     ) : (
                         <p className="mt-16 text-center text-muted-foreground">
                             No projects match your search.
                         </p>
                     )}
-
-                    <div className="mt-12 flex items-center justify-center gap-2">
-                        <button
-                            type="button"
-                            aria-label="Previous page"
-                            className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground hover:bg-muted"
-                        >
-                            <ChevronLeft className="size-4" />
-                        </button>
-                        {[1, 2, 3].map((page) => (
-                            <button
-                                key={page}
-                                type="button"
-                                className={cn(
-                                    "inline-flex size-9 items-center justify-center rounded-full text-sm font-medium",
-                                    page === 1
-                                        ? "bg-primary text-primary-foreground"
-                                        : "border border-border text-muted-foreground hover:bg-muted",
-                                )}
-                            >
-                                {page}
-                            </button>
-                        ))}
-                        <button
-                            type="button"
-                            aria-label="Next page"
-                            className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground hover:bg-muted"
-                        >
-                            <ChevronRight className="size-4" />
-                        </button>
-                    </div>
                 </section>
+                <div className="bg-secondary/40">
+                    <ContactBar />
+                </div>
             </main>
         </div>
     )

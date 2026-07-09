@@ -31,7 +31,7 @@ export function Faq() {
                                 type="button"
                                 onClick={() => setOpen(isOpen ? null : i)}
                                 aria-expanded={isOpen}
-                                className="flex w-full items-center justify-between gap-4 p-5 text-left"
+                                className="flex w-full items-center justify-between gap-4 p-5 text-left cursor-pointer"
                             >
                                 <span className="font-medium text-foreground">{faq.q}</span>
                                 <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-accent text-primary">

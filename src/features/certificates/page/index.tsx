@@ -1,22 +1,20 @@
-import { ContactBar } from "#/components/ContactBar";
-import { PageBanner } from "#/components/PageBanner";
-import { Awards } from "../components/Awards";
-import { CertList } from "../components/CertList";
-import { CertStats } from "../components/CertStats";
+import { ContactBar } from "#/components/ContactBar"
+import { PageBanner } from "#/components/PageBanner"
+import { CertList } from "../components/CertList"
 
 export default function CertificatePage() {
     return (
         <div className="flex min-h-screen flex-col">
             <main className="flex-1">
                 <PageBanner
-                    title="Certificates & Achievements"
+                    title="Certificates"
                     subtitle="Recognition of my learning journey and professional milestones."
                     breadcrumbs={[{ label: "Certificates" }]}
                 />
-                <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-12 sm:px-6">
-                    <CertStats />
+                <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
                     <CertList />
-                    <Awards />
+                </div>
+                <div className="bg-secondary/40">
                     <ContactBar />
                 </div>
             </main>

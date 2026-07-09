@@ -1,56 +1,43 @@
-import type { Project } from "#/data/data";
-import { Image } from "@unpic/react"
-import { ArrowUpRight, Code } from "lucide-react";
+import type { Project } from "#/data/data"
+import { Sparkles } from "lucide-react"
+
 export default function ProjectCard({ project }: { project: Project }) {
     return (
-        <article className="flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-shadow hover:shadow-md">
-            <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-                <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={`${project.title} preview`}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover"
-                    width={60}
-                    height={60}
-                />
-            </div>
-            <div className="flex flex-1 flex-col p-5">
-                <span className="inline-flex w-fit items-center rounded-full bg-accent px-2.5 py-1 text-xs font-medium text-accent-foreground">
+        <article className="group flex h-full flex-col rounded-2xl border border-border/80 bg-card/80 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
+            <div className="flex items-start justify-between gap-3">
+                <span className="inline-flex w-fit items-center rounded-full bg-accent/70 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-foreground">
                     {project.category}
                 </span>
-                <h3 className="mt-3 text-base font-semibold text-foreground">
-                    {project.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {project.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                        <span
-                            key={tag}
-                            className="rounded-md bg-muted px-2 py-1 text-xs text-muted-foreground"
-                        >
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-                <div className="mt-5 flex items-center gap-4 border-t border-border pt-4 text-sm">
-                    <a
-                        href="#"
-                        className="inline-flex items-center gap-1.5 font-medium text-foreground hover:text-primary"
-                    >
-                        <Code className="size-4" />
-                        Code
-                    </a>
-                    <a
-                        href="#"
-                        className="inline-flex items-center gap-1 font-medium text-primary hover:underline"
-                    >
-                        Live Demo
-                        <ArrowUpRight className="size-4" />
-                    </a>
+                <div className="flex size-10 items-center justify-center rounded-full border border-border bg-background/80 text-primary">
+                    <Sparkles className="size-4" />
                 </div>
             </div>
+
+            <div className="mt-5">
+                <h3 className="text-lg font-semibold text-foreground">
+                    {project.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                    {project.description}
+                </p>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                    <span
+                        key={tag}
+                        className="rounded-full border border-border bg-background px-2.5 py-1 text-xs font-medium text-muted-foreground"
+                    >
+                        {tag}
+                    </span>
+                ))}
+            </div>
+
+            {/* <div className="mt-6 border-t border-border/70 pt-4">
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                    Project snapshot
+                </p>
+            </div> */}
         </article>
     )
 }
