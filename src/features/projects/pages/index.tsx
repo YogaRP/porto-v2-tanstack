@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { ChevronLeft, ChevronRight, Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { projects } from "#/data/data"
@@ -11,6 +11,17 @@ const itemsPerPage = 6
 export default function ProjectPage() {
     const [query, setQuery] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
+    const sectionRef = useRef<HTMLElement | null>(null)
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page)
+
+        if (typeof window !== "undefined" && window.innerWidth < 768) {
+            requestAnimationFrame(() => {
+                sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+            })
+        }
+    }
 
     const filtered = useMemo(() => {
         const search = query.trim().toLowerCase()
@@ -51,7 +62,7 @@ export default function ProjectPage() {
                     subtitle="A collection of my work and learning project"
                     breadcrumbs={[{ label: "Projects" }]}
                 />
-                <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+                <section ref={sectionRef} className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
                     <div className="flex flex-col gap-4 rounded-2xl border border-border/70 bg-card/70 p-4 shadow-sm sm:p-6 lg:flex-row lg:items-center lg:justify-between">
                         <div>
                             <p className="text-sm font-medium text-primary">Search projects</p>
@@ -86,7 +97,7 @@ export default function ProjectPage() {
                                     <button
                                         type="button"
                                         aria-label="Previous page"
-                                        onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+                                        onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                                         disabled={currentPage === 1}
                                         className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50"
                                     >
@@ -97,7 +108,7 @@ export default function ProjectPage() {
                                         <button
                                             key={page}
                                             type="button"
-                                            onClick={() => setCurrentPage(page)}
+                                            onClick={() => handlePageChange(page)}
                                             className={cn(
                                                 "inline-flex size-9 items-center justify-center rounded-full text-sm font-medium transition-colors",
                                                 currentPage === page
@@ -112,7 +123,7 @@ export default function ProjectPage() {
                                     <button
                                         type="button"
                                         aria-label="Next page"
-                                        onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
+                                        onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
                                         disabled={currentPage === totalPages}
                                         className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50"
                                     >
