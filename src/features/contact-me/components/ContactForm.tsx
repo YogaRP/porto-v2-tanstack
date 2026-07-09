@@ -8,7 +8,6 @@ import { contactSchema } from "../schema/contact"
 import { toast } from "sonner"
 import { Input } from "@base-ui/react/input"
 import { useState } from "react"
-import { cn } from "#/lib/utils"
 
 export function ContactForm() {
     const sendMessage = useServerFn(useSendContactMessage)
@@ -27,8 +26,8 @@ export function ContactForm() {
         onSubmit: async ({ value }) => {
             setIsSubmitting(true)
             try {
-                // sendMessage({ data: value })
-                // form.reset()
+                sendMessage({ data: value })
+                form.reset()
                 toast.success("Message has been sent successfully.", {
                     className: "!bg-green-500 !text-white !font-medium",
                     duration: 4000,
