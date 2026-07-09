@@ -166,7 +166,7 @@ export function ContactForm() {
                         <ShieldCheck className="size-4 text-primary" />
                         Your information stays private.
                     </p>
-                    <Button type="submit" disabled={!isSubmitting} className="rounded-full px-5 cursor-pointer">
+                    <Button type="submit" disabled={isSubmitting} className="rounded-full px-5 cursor-pointer">
                         <Send className="size-4" />
                         Send Message
                     </Button>
