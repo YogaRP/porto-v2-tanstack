@@ -1,27 +1,26 @@
 import { Link } from "@tanstack/react-router"
 import { Separator } from "../ui/separator"
-import { Github, Linkedin } from "lucide-react"
 
 export default function Footer() {
     return (
         <div className="bg-[#09090B] p-12">
-            <div className="flex gap-12">
-                <div className="flex-1">
+            <div className="flex flex-col gap-12 sm:flex-row">
+                <div className="w-full">
                     <h1 style={{ fontFamily: 'var(--font-mono)' }} className="text-xl font-semibold mb-4 text-white">Yoga Rizky Putra</h1>
                     <p className="text-sm text-[#AEAEAF]">Web developer, problem solver, digital builder. I turn ideas into fullstack web solutions, and I never stop exploring what's next.</p>
                 </div>
-                <div className="flex-1">
+                <div className="w-full">
                     <h1 className="font-semibold mb-4 uppercase text-gray-500">Quick Links</h1>
                     <div className="flex flex-col gap-4 text-[#AEAEAF]">
-                        <Link to="/">Home</Link>
-                        <Link to="/projects">Projects</Link>
-                        <Link to="/certificates">Certificates</Link>
-                        <Link to="/contact-me">Contact me</Link>
+                        <Link to="/" className="hover:text-white">Home</Link>
+                        <Link to="/projects" className="hover:text-white">Projects</Link>
+                        <Link to="/certificates" className="hover:text-white">Certificates</Link>
+                        <Link to="/contact-me" className="hover:text-white">Contact me</Link>
                     </div>
                 </div>
-                <div className="flex-1">
+                <div className="w-full">
                     <h1 className="font-semibold mb-4 uppercase text-gray-500">Stay connected</h1>
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-4">
                         <a
                             href={"https://github.com/YogaRP"}
                             target="_blank"
@@ -37,7 +36,6 @@ export default function Footer() {
                             className="flex gap-2 items-center bg-white hover:bg-blue-400 text-black font-semibold rounded-full p-2 w-fit"
                         >
                             <svg className="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                {/* <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--> */}
                                 <path d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z" /></svg>
                         </a>
                         <a

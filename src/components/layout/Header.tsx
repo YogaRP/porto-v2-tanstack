@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Menu, X, Code2, Sparkle, Sparkles } from "lucide-react"
+import { Menu, X, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Link, useLocation } from "@tanstack/react-router"
@@ -23,7 +23,7 @@ export default function Header() {
                     <Image
                         width={40}
                         height={40}
-                        src="/public/yrp.svg"
+                        src="/yrp.svg"
                     />
                     <span className="text-base text-primary">Yoga Rizky Putra</span>
                 </Link>
