@@ -16,7 +16,7 @@ export default function Hero() {
                 <div>
                     <div className="flex flex-wrap items-center gap-2">
                         <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                            Available for Freelance
+                            Available for Fulltime
                         </span>
                         <span className="inline-flex items-center rounded-full bg-accent px-2.5 py-1 text-xs font-medium text-primary">
                             Open to remote roles
